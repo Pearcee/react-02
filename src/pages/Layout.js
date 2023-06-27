@@ -1,11 +1,13 @@
 import { Outlet, Link } from "react-router-dom";
+
+import Footer from "./Footer";
 // import "./Navbar.css";
 
 const Layout = () => {
   return (
     <>
-      <div className="w3-top">
-        <div className="w3-bar w3-black">
+      <div className="">
+        <div className="w3-top w3-container w3-bar w3-black">
           <Link to="/" className="w3-bar-item w3-button">
             Home
           </Link>
@@ -24,6 +26,7 @@ const Layout = () => {
         </div>
         <Outlet />
       </div>
+      <Footer />
     </>
   );
 };
