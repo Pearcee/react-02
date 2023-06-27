@@ -18,6 +18,9 @@ const Layout = () => {
           <Link to="/contact" className="w3-bar-item w3-button">
             Contact
           </Link>
+          <Link to="/car" className="w3-bar-item w3-button">
+            Car
+          </Link>
         </div>
         <Outlet />
       </div>
