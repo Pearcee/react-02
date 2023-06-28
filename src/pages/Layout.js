@@ -6,6 +6,7 @@ import Footer from "./Footer";
 const Layout = () => {
   return (
     <>
+      <br/>
       <div className="">
         <div className="w3-top w3-container w3-bar w3-black">
           <Link to="/" className="w3-bar-item w3-button">
@@ -24,8 +25,10 @@ const Layout = () => {
             Car
           </Link>
         </div>
+        
         <Outlet />
       </div>
+      <br />
       <Footer />
     </>
   );

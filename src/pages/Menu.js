@@ -23,21 +23,22 @@ const Menu = () => {
     { id: 6, item: 'Audi', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' }
   ];
   return (
-    <div className="w3-container w3-top">
+    <div className="w3-container">
       <br />
       <h1 className="w3-center w3-jumbo">THE MENU</h1>
 
       <Tabs>
         <TabList className="w3-bar w3-black">
-          <Tab className="w3-bar-item w3-button">Tab 1</Tab>
-          <Tab className="w3-bar-item w3-button">Tab 2</Tab>
-          <Tab className="w3-bar-item w3-button">Tab 3</Tab>
+
+          <Tab className="w3-bar-item w3-button">Starter</Tab>
+          <Tab className="w3-bar-item w3-button">Pizza</Tab>
+          <Tab className="w3-bar-item w3-button">Salad</Tab>
         </TabList>
-        <TabPanel className="">
-          {foods.map((food) => <Food item={food.item} price={food.price} ingredients={food.ingredients}/>)}
-        </TabPanel>
         <TabPanel>
           <p>Tab 2 works!</p>
+        </TabPanel>
+        <TabPanel className="">
+          {foods.map((food) => <Food item={food.item} price={food.price} ingredients={food.ingredients}/>)}
         </TabPanel>
         <TabPanel>
           <p>Tab 3 works!</p>
