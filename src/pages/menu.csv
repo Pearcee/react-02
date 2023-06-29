@@ -1,0 +1,15 @@
+id,Menu,Item,Price,Ingredients
+0,Pizza,Margherita,12.50,"Fresh tomatoes, fresh mozzarella, fresh basil"
+1,Pizza,Formaggio,15.5,"Four cheeses (mozzarella, parmesan, pecorino, jarlsberg)"
+2,Pizza,Chicken,17,"Fresh tomatoes, mozzarella, chicken, onions"
+3,Pizza,Pineapple'o'clock,16.5,"Fresh tomatoes, mozzarella, fresh pineapple, bacon, fresh basil"
+4,Pizza,Meat Town�Hot!,20,"Fresh tomatoes, mozzarella, hot pepporoni, hot sausage, beef, chicken"
+5,Pizza,Parma�New,21.5,"Fresh tomatoes, mozzarella, parma, bacon, fresh arugula"
+6,Salads,Lasagna�Popular,13.5,"Special sauce, mozzarella, parmesan, ground beef"
+7,Salads,Ravioli,14.5,Ravioli filled with cheese
+8,Salads,Spaghetti Classica,11,"Fresh tomatoes, onions, ground beef"
+9,Salads,Seafood pasta,25.5,"Salmon, shrimp, lobster, garlic"
+10,Starter,Today's Soup�Seasonal,5.5,Ask the waiter
+11,Starter,Bruschetta,8.5,"Bread with pesto, tomatoes, onion, garlic"
+12,Starter,Garlic bread,9.5,"Grilled ciabatta, garlic butter, onions"
+13,Starter,Tomozzarella,10.50,Tomatoes and mozzarella

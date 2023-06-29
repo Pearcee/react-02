@@ -1,17 +1,15 @@
-function Car(props) {
-    return <li>I am a {props.brand}</li>;
+import ReactDOM from 'react-dom/client';
+
+function Car() {
+  return <h2>I am a Car!</h2>;
 }
 
 function Garage() {
-    const cars = ['Ford', 'BMW', 'Audi'];
-    return (
-        <div className="w3-container">
-            <h1>Who lives in my garage?</h1>
-            <ul>
-                {cars.map((car) => <Car brand={car} />)}
-            </ul>
-        </div>
-    );
+  return (
+    <>
+	    <h1>Who lives in my Garage?</h1>
+	    <Car />
+    </>
+  );
 }
-
 export default Garage;

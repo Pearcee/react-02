@@ -1,11 +1,23 @@
-
 // import Tabs from "../components/TabComponent/Tabs";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { useState, useEffect } from "react";
+import Data from "./menu.csv";
+import Papa from "papaparse";
 
 function Food(props) {
+  const price = props.price;
+  let USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "GBP",
+  });
   return (
     <>
-      <h1>{props.item}<b></b> <span className="w3-right w3-tag w3-dark-grey w3-round">{props.price}</span></h1>
+      <h1>
+        {props.item}
+        <span className="w3-right w3-tag w3-dark-grey w3-round">
+          {USDollar.format(price)}
+        </span>
+      </h1>
       <p className="w3-text-grey">{props.ingredients}</p>
       <hr />
     </>
@@ -13,15 +25,35 @@ function Food(props) {
 }
 
 const Menu = () => {
-  // <!-- Menu Container -->  
-  const foods = [
-    { id: 1, item: 'Margherita', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' },
-    { id: 2, item: 'BMW', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' },
-    { id: 3, item: 'Audi', price: 11.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' },
-    { id: 4, item: 'Audi', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' },
-    { id: 5, item: 'Audi', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' },
-    { id: 6, item: 'Audi', price: 12.99, ingredients: 'Fresh tomatoes, fresh mozzarella, fresh basil' }
-  ];
+  // <!-- Menu Container -->
+ 
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(Data);
+      const reader = response.body.getReader();
+      const result = await reader.read();
+      const decoder = new TextDecoder("utf-8");
+      const csvData = decoder.decode(result.value);
+      const parsedData = Papa.parse(csvData, {
+        header: true,
+        skipEmptyLines: true,
+      }).data;
+      setData(parsedData);
+    };
+    fetchData();
+  }, []);
+
+  var pizza = data.filter(function (pilot) {
+    return pilot.Menu === "Pizza";
+  });
+  var salad = data.filter(function (pilot) {
+    return pilot.Menu === "Salads";
+  });
+  var starter = data.filter(function (pilot) {
+    return pilot.Menu === "Starter";
+  });
+
   return (
     <div className="w3-container">
       <br />
@@ -29,19 +61,42 @@ const Menu = () => {
 
       <Tabs>
         <TabList className="w3-bar w3-black">
-
           <Tab className="w3-bar-item w3-button">Starter</Tab>
           <Tab className="w3-bar-item w3-button">Pizza</Tab>
           <Tab className="w3-bar-item w3-button">Salad</Tab>
         </TabList>
         <TabPanel>
-          <p>Tab 2 works!</p>
+          {starter.map((row, index) => (
+            <Food
+              key={row.id}
+              item={row.Item}
+              price={row.Price}
+              ingredients={row.Ingredients}
+            />
+          ))}
         </TabPanel>
         <TabPanel className="">
-          {foods.map((food) => <Food item={food.item} price={food.price} ingredients={food.ingredients}/>)}
+          {pizza.map((row, index) => (
+            <Food
+              key={row.id}
+              item={row.Item}
+              price={row.Price}
+              ingredients={row.Ingredients}
+            />
+          ))}
         </TabPanel>
         <TabPanel>
-          <p>Tab 3 works!</p>
+          <>
+          {salad.map((row, index) => (
+            <Food
+              key={row.id}
+              item={row.Item}
+              price={row.Price}
+              ingredients={row.Ingredients}
+            />
+            
+          ))}
+          </>
         </TabPanel>
       </Tabs>
     </div>
@@ -50,7 +105,7 @@ const Menu = () => {
 
 export default Menu;
 
-// 
+//
 /* 
       // <!-- Menu Container -->
 <div className="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
