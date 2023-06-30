@@ -38,9 +38,10 @@ const Contact = () => {
     valueAsDate: true,
   })} placeholder="2020-11-16T20:00" className="w3-input w3-padding-16 w3-border"/>
               <textarea {...register("note")} placeholder="Message \ Special requirements" className="w3-input w3-padding-16 w3-border"/>
-              <p>{data}</p>
-              <input type="submit" />
+              
+              <input type="submit" className="w3-input w3-padding-16 w3-border"/>
             </form>
+            <p>{data}</p>
           </p>
         </div>
       </div>
